@@ -52,7 +52,6 @@ coverage.xml
 cover/
 
 # py-cache
-__pycache__/
 *.pyo 
 *.pyc
 *.pyd
