@@ -51,6 +51,13 @@ coverage.xml
 .pytest_cache/
 cover/
 
+# py-cache
+__pycache__/
+*.pyo 
+*.pyc
+*.pyd
+.python-version
+
 # Translations
 *.mo
 *.pot
