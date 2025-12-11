@@ -559,7 +559,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         imgs = sys.argv[1:]
     else:
-        imgs = ["Images/sampleee1.png","Images/sampleee2.png","Images/sampleee3.png"]
+        imgs = ["Images/sampleee1.png","Images/sample5.png","Images/sample6.png"]
     all_results = {}
     for p in imgs:
         print("\n--- Processing:", p, "---")
@@ -572,3 +572,4 @@ if __name__ == "__main__":
         print("\nSaved combined JSON: hybrid_multi_results.json")
     except Exception as e:
         print("Failed to save combined JSON:", e)
+
