@@ -8,13 +8,20 @@ export const uploadImageToBackend = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
 
-  // --- REAL CODE (Commented out until Member B is ready) ---
-  // const response = await axios.post(`${API_BASE_URL}/extract`, formData, {
-  //   headers: { "Content-Type": "multipart/form-data" }
-  // });
-  // return response.data;
+  // --- REAL CODE (ACTIVE) ---
+  // Now connected to Member B's backend
+  try {
+    const response = await axios.post(`${API_BASE_URL}/extract`, formData, {
+      headers: { "Content-Type": "multipart/form-data" }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Backend Error:", error);
+    throw error; // Rethrow so the UI knows something failed
+  }
   
-  // --- MOCK CODE (Active) ---
+  // --- MOCK CODE (INACTIVE) ---
+  /*
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -27,18 +34,26 @@ export const uploadImageToBackend = async (file) => {
       });
     }, 1500);
   });
+  */
 };
 
 // 2. VERIFY DATA API
 export const verifyDataWithBackend = async (originalData, userEdits) => {
-  // --- REAL CODE (Commented out) ---
-  // const response = await axios.post(`${API_BASE_URL}/verify`, {
-  //   original: originalData,
-  //   corrected: userEdits
-  // });
-  // return response.data;
+  // --- REAL CODE (ACTIVE) ---
+  // Now connected to Member B's backend
+  try {
+    const response = await axios.post(`${API_BASE_URL}/verify`, {
+      original: originalData,
+      corrected: userEdits
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Backend Error:", error);
+    throw error;
+  }
 
-  // --- MOCK CODE (Active) ---
+  // --- MOCK CODE (INACTIVE) ---
+  /*
   return new Promise((resolve) => {
     setTimeout(() => {
       // LOGIC: Compare the Original OCR vs. What User Typed
@@ -65,4 +80,5 @@ export const verifyDataWithBackend = async (originalData, userEdits) => {
       });
     }, 1000);
   });
+  */
 };
