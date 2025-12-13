@@ -1,3 +1,4 @@
+
 # MOSIP Intelligent OCR & Identity Verification System
 
 ## 🚀 Project Overview
@@ -66,6 +67,105 @@ This section details the primary endpoints used for integration.
       "confidence": 0.98,
       "box": [[100, 200], [300, 200], [300, 250], [100, 250]]
     }
-    // ... additional token data
   ]
 }
+
+```
+
+###**2. Verify Data****Endpoint:** `POST /verify`
+**Description:** Performs a strict comparison between the original AI extraction and the final user-reviewed data. It calculates a trust score based on data integrity.
+
+**Request:**
+
+* **Content-Type:** `application/json`
+* **Body:**
+
+```json
+{
+  "original_data": {
+    "Name": "Johnathan Doe",
+    "IDNumber": "A123 4567 8901"
+  },
+  "user_edits": {
+    "Name": "Johnathan Doe",
+    "IDNumber": "A123 4567 8901"
+  }
+}
+
+```
+
+**Response Example (200 OK):**
+
+```json
+{
+  "status": "success",
+  "match_score": 100,
+  "message": "Verified Perfect Match"
+}
+
+```
+
+---
+
+##🛠️ Installation & Setup###**Backend (Python)**1. Navigate to the source folder:
+```bash
+cd backend/src
+
+```
+
+
+2. Set up the virtual environment:
+```bash
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Mac/Linux
+
+```
+
+
+3. Install dependencies:
+```bash
+pip install fastapi uvicorn python-multipart opencv-python numpy pillow transformers torch torchvision craft-text-detector
+
+```
+
+
+4. Start the API server:
+```bash
+uvicorn main:app --reload
+
+```
+
+
+
+###**Frontend (React)**1. Open a new terminal and navigate to the client folder:
+```bash
+cd frontend/ocr-client
+
+```
+
+
+2. Install dependencies:
+```bash
+npm install
+
+```
+
+
+3. Launch the application:
+```bash
+npm start
+
+```
+
+
+
+The application will be accessible at `http://localhost:3000`.
+
+---
+
+*Developed for the MOSIP Hackathon.*
+
+```
+
+```
