@@ -537,7 +537,8 @@ def process_image(path, show_window=False, save_annotated=True, debug=False):
         "quality_check": quality,
         "ocr_data": ocr_data,
         "lines": lines,
-        "fields": final_fields
+        "fields": final_fields,
+        "field_boxes": field_boxes  # <--- ADD THIS COMMA AND LINE
     }
 
     # Annotate & save
